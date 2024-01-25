@@ -54,7 +54,7 @@ public class ArticleModifyServlet extends HttpServlet {
 			sql.append("WHERE id = ?;", id);
 
 			Map<String, Object> articleRow = DBUtil.selectRow(conn, sql);
-			
+
 			//
 			int loginedMemberId = (int) session.getAttribute("loginedMemberId");
 
@@ -63,10 +63,6 @@ public class ArticleModifyServlet extends HttpServlet {
 						.append(String.format("<script>alert('수정권한이 없어'); location.replace('list');</script>"));
 				return;
 			}
-			
-			
-			
-			//
 
 			request.setAttribute("articleRow", articleRow);
 			request.getRequestDispatcher("/jsp/article/modify.jsp").forward(request, response);
